@@ -9,9 +9,9 @@ phases:
   build:
     commands:
       - echo "Zipping deployment package..."
-      - zip -g lambda_1.zip lambda_function.py
+      - zip -g cloudfront-invalidation.zip lambda_function.py
   post_build:
     commands:
       - echo "Updating lambda Function..."
-      - aws lambda update-function-code --function-name lambda_1 --zip-file fileb://lambda_1.zip
+      - aws lambda update-function-code --function-name cloudfront-invalidation --zip-file fileb://cloudfront-invalidation.zip
       - echo "DONE!!"
