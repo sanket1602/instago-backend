@@ -9,9 +9,9 @@ phases:
   build:
     commands:
       - echo "Zipping deployment package..."
-      - zip -g lambda_1.zip lambda_function.py
+      - zip -g s3_backup_and_db_update.zip lambda_function.py
   post_build:
     commands:
       - echo "Updating lambda Function..."
-      - aws lambda update-function-code --function-name lambda_1 --zip-file fileb://lambda_1.zip
+      - aws lambda update-function-code --function-name s3_backup_and_db_update --zip-file fileb://s3_backup_and_db_update.zip
       - echo "DONE!!"
